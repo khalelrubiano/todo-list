@@ -1,0 +1,25 @@
+.clicked {
+    background-color: rgb(255, 213, 219);
+    color: black;
+}
+
+.clicked {
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.notClicked:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    color: black;
+}
+
+.testClass {
+    color: khaki;
+}
+
+.itemCheckbox {
+    accent-color: black;
+}

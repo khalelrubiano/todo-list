@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+// import styles from './App.module.css';
+// import NoteForm, { noteAction } from './components/NoteForm/NoteForm';
+import { RouterProvider, createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom';
+import RootLayout from './layouts/RootLayout/RootLayout';
+import Test from './components/Test/Test';
+import NoteDisplay from './components/NoteDisplay/NoteDisplay';
 
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<RootLayout />}>
+        <Route path="/test/:id" element={<NoteDisplay />} />
+        <Route path="*" element={<Test />} />
+        {/* <Route path="/add-note" element={<NoteForm />} /> */}
+      </Route>
+    )
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router} />
+
+    // <div className={styles.container}>
+    //   <div class={styles.item}><Navbar /></div>
+    //   <div class={styles.item}>
+    //     <h1>HEADER</h1>
+    //   </div>
+    // </div>
   );
 }
 
